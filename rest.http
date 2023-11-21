@@ -1,0 +1,66 @@
+# ApI testing for our transaction history APIs
+# Protocals: http://
+# URL : localhost
+# port : :8000
+# path: api/v1/user
+
+@userApi = http://localhost:8000/api/v1/user
+@transApi = http://localhost:8000/api/v1/transaction
+
+
+
+
+
+### check server status
+GET  http://localhost:8000/
+
+# ============ User apis
+### User get Api
+GET {{userApi}}
+
+### User Post Api
+POST {{userApi}}
+Content-Type: application/json
+
+{
+    "name": "Prem",
+    "email": "b@a.com",
+    "password": "12345"
+}
+
+### login user
+POST {{userApi}}/login
+Content-Type: application/json
+
+{
+    "email": "b@a.com",
+    "password": "12345"
+}
+
+
+### User Post Api
+PUT {{userApi}}
+
+### User Post Api
+PATCH  {{userApi}}
+
+### User Post Api
+DELETE  {{userApi}}
+
+# ============ transactions apis
+### trans get Api
+GET  {{transApi}} 
+Authorization: 6552f9f5abaa2dc477510adc
+
+### trans get Api
+Post  {{transApi}} 
+Content-Type: application/json
+Authorization: 6552f9f5abaa2dc477510adc
+
+{
+    "amount" :  "12345",
+"date" :  "2023-11-19",
+"title" :  "found it",
+"type" :  "income"
+ 
+}
